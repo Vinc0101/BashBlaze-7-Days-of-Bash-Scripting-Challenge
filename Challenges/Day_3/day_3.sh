@@ -6,7 +6,7 @@ echo "hello day 3"
 
 function create_user {
 
-read -p "enter username:  " username
+    read -p "enter username:  " username
 
     if id "$username" &>/dev/null; then
         echo "User already exists"
@@ -21,8 +21,15 @@ read -p "enter username:  " username
 
 function delete_user {
 
-    read -p "enter user that you want to delete:  " username
-    sudo deluser "$username"
+    read -p "enter username:  " username
+
+    if ! id "$username" &>/dev/null; then
+        echo "User does not exist"
+    else
+        sudo deluser "$username"
+        echo "user deleted"
+
+    fi
 }
 
 if  [ $# -gt 0 ]; then #checks if number of arguments is greater than 0
