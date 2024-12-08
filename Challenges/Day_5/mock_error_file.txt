@@ -1,0 +1,8 @@
+ok
+ok
+ERROR
+ok
+ERROR
+FAILED
+ok
+CRITICAL
